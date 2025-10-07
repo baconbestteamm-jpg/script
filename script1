@@ -7,7 +7,7 @@ local DiscordLib =
 
 local win = DiscordLib:Window("discord library")
 
-local serv = win:Server("Script", "")
+local serv = win:Server("Genovia High Auto Farm", "")
 
 
 local tgls = serv:Channel("Toggles")
@@ -25,8 +25,6 @@ if game.Players.LocalPlayer.PlayerGui.MoodGUI.ImageLabel.TimeLabel.Text:find("2:
 if game.Players.LocalPlayer.PlayerGui.MoodGUI.ImageLabel.TimeLabel.Text:find("4:00") and game.Players.LocalPlayer.PlayerGui.MoodGUI.ImageLabel.TimeLabel.Text:find("pm") and game:GetService("Players").LocalPlayer.PlayerGui.MoodGUI.ImageLabel.DayLabel.Text == "B" then game.ReplicatedStorage.Remotes.Functions.TeleportToDestination:InvokeServer(workspace.Teleports.Scheduled, "Ballroom") end 
 if game.Players.LocalPlayer.PlayerGui.MoodGUI.ImageLabel.TimeLabel.Text:find("8:00") and game.Players.LocalPlayer.PlayerGui.MoodGUI.ImageLabel.TimeLabel.Text:find("am") and game:GetService("Players").LocalPlayer.PlayerGui.MoodGUI.ImageLabel.DayLabel.Text == "C" then game.ReplicatedStorage.Remotes.Functions.TeleportToDestination:InvokeServer(workspace.Teleports.Scheduled, "Alchemy") end 
 if game.Players.LocalPlayer.PlayerGui.MoodGUI.ImageLabel.TimeLabel.Text:find("10:00") and game.Players.LocalPlayer.PlayerGui.MoodGUI.ImageLabel.TimeLabel.Text:find("am") and game:GetService("Players").LocalPlayer.PlayerGui.MoodGUI.ImageLabel.DayLabel.Text == "C" then game.ReplicatedStorage.Remotes.Functions.TeleportToDestination:InvokeServer(workspace.Teleports.Scheduled, "Astronomy") end 
-if game.Players.LocalPlayer.PlayerGui.MoodGUI.ImageLabel.TimeLabel.Text:find("11:00") and game.Players.LocalPlayer.PlayerGui.MoodGUI.ImageLabel.TimeLabel.Text:find("am") and game:GetService("Players").LocalPlayer.PlayerGui.MoodGUI.ImageLabel.DayLabel.Text == "C" then game.ReplicatedStorage.Remotes.Functions.TeleportToDestination:InvokeServer(workspace.Teleports.Scheduled, "Music") 
-end 
 end 
 end
 )
