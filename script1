@@ -7,7 +7,7 @@ local DiscordLib =
 
 local win = DiscordLib:Window("discord library")
 
-local serv = win:Server("Genovia High Auto Farm", "")
+local serv = win:Server("Script", "")
 
 
 local tgls = serv:Channel("Toggles")
