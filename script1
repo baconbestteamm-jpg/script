@@ -1,0 +1,56 @@
+local Players = game:GetService("Players")
+local VirtualUser = game:GetService("VirtualUser")
+local player = Players.LocalPlayer
+
+local DiscordLib =
+    loadstring(game:HttpGet "https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/discord")()
+
+local win = DiscordLib:Window("discord library")
+
+local serv = win:Server("Genovia High Auto Farm", "")
+
+
+local tgls = serv:Channel("Toggles")
+
+tgls:Toggle( "Auto-Farm", false, function(bool) _G.AutoFarm = bool while _G.AutoFarm do task.wait(0.5) 
+if game.Players.LocalPlayer.PlayerGui.MoodGUI.ImageLabel.TimeLabel.Text:find("8:00") and game.Players.LocalPlayer.PlayerGui.MoodGUI.ImageLabel.TimeLabel.Text:find("am") and game:GetService("Players").LocalPlayer.PlayerGui.MoodGUI.ImageLabel.DayLabel.Text == "A" then game.ReplicatedStorage.Remotes.Functions.TeleportToDestination:InvokeServer(workspace.Teleports.Scheduled, "Fencing") end 
+if game.Players.LocalPlayer.PlayerGui.MoodGUI.ImageLabel.TimeLabel.Text:find("10:00") and game.Players.LocalPlayer.PlayerGui.MoodGUI.ImageLabel.TimeLabel.Text:find("am") and game:GetService("Players").LocalPlayer.PlayerGui.MoodGUI.ImageLabel.DayLabel.Text == "A" then game.ReplicatedStorage.Remotes.Functions.TeleportToDestination:InvokeServer(workspace.Teleports.Scheduled, "Writing") end 
+if game.Players.LocalPlayer.PlayerGui.MoodGUI.ImageLabel.TimeLabel.Text:find("11:00") and game.Players.LocalPlayer.PlayerGui.MoodGUI.ImageLabel.TimeLabel.Text:find("am") and game:GetService("Players").LocalPlayer.PlayerGui.MoodGUI.ImageLabel.DayLabel.Text == "A" then game.ReplicatedStorage.Remotes.Functions.TeleportToDestination:InvokeServer(workspace.Teleports.Scheduled, "EtiquetteAndManners") task.wait(170) end 
+if game.Players.LocalPlayer.PlayerGui.MoodGUI.ImageLabel.TimeLabel.Text:find("2:00") and game.Players.LocalPlayer.PlayerGui.MoodGUI.ImageLabel.TimeLabel.Text:find("pm") and game:GetService("Players").LocalPlayer.PlayerGui.MoodGUI.ImageLabel.DayLabel.Text == "A" then game.ReplicatedStorage.Remotes.Functions.TeleportToDestination:InvokeServer(workspace.Teleports.Scheduled, "History") end 
+if game.Players.LocalPlayer.PlayerGui.MoodGUI.ImageLabel.TimeLabel.Text:find("4:00") and game.Players.LocalPlayer.PlayerGui.MoodGUI.ImageLabel.TimeLabel.Text:find("pm") and game:GetService("Players").LocalPlayer.PlayerGui.MoodGUI.ImageLabel.DayLabel.Text == "A" then game.ReplicatedStorage.Remotes.Functions.TeleportToDestination:InvokeServer(workspace.Teleports.Scheduled, "Theater") end 
+if game.Players.LocalPlayer.PlayerGui.MoodGUI.ImageLabel.TimeLabel.Text:find("8:00") and game.Players.LocalPlayer.PlayerGui.MoodGUI.ImageLabel.TimeLabel.Text:find("am") and game:GetService("Players").LocalPlayer.PlayerGui.MoodGUI.ImageLabel.DayLabel.Text == "B" then game.ReplicatedStorage.Remotes.Functions.TeleportToDestination:InvokeServer(workspace.Teleports.Scheduled, "HorsebackRiding") end 
+if game.Players.LocalPlayer.PlayerGui.MoodGUI.ImageLabel.TimeLabel.Text:find("10:00") and game.Players.LocalPlayer.PlayerGui.MoodGUI.ImageLabel.TimeLabel.Text:find("am") and game:GetService("Players").LocalPlayer.PlayerGui.MoodGUI.ImageLabel.DayLabel.Text == "B" then game.ReplicatedStorage.Remotes.Functions.TeleportToDestination:InvokeServer(workspace.Teleports.Scheduled, "Mathematics") end 
+if game.Players.LocalPlayer.PlayerGui.MoodGUI.ImageLabel.TimeLabel.Text:find("11:00") and game.Players.LocalPlayer.PlayerGui.MoodGUI.ImageLabel.TimeLabel.Text:find("am") and game:GetService("Players").LocalPlayer.PlayerGui.MoodGUI.ImageLabel.DayLabel.Text == "B" then game.ReplicatedStorage.Remotes.Functions.TeleportToDestination:InvokeServer(workspace.Teleports.Scheduled, "Music") task.wait(170) end 
+if game.Players.LocalPlayer.PlayerGui.MoodGUI.ImageLabel.TimeLabel.Text:find("2:00") and game.Players.LocalPlayer.PlayerGui.MoodGUI.ImageLabel.TimeLabel.Text:find("pm") and game:GetService("Players").LocalPlayer.PlayerGui.MoodGUI.ImageLabel.DayLabel.Text == "B" then game.ReplicatedStorage.Remotes.Functions.TeleportToDestination:InvokeServer(workspace.Teleports.Scheduled, "Art") end 
+if game.Players.LocalPlayer.PlayerGui.MoodGUI.ImageLabel.TimeLabel.Text:find("4:00") and game.Players.LocalPlayer.PlayerGui.MoodGUI.ImageLabel.TimeLabel.Text:find("pm") and game:GetService("Players").LocalPlayer.PlayerGui.MoodGUI.ImageLabel.DayLabel.Text == "B" then game.ReplicatedStorage.Remotes.Functions.TeleportToDestination:InvokeServer(workspace.Teleports.Scheduled, "Ballroom") end 
+if game.Players.LocalPlayer.PlayerGui.MoodGUI.ImageLabel.TimeLabel.Text:find("8:00") and game.Players.LocalPlayer.PlayerGui.MoodGUI.ImageLabel.TimeLabel.Text:find("am") and game:GetService("Players").LocalPlayer.PlayerGui.MoodGUI.ImageLabel.DayLabel.Text == "C" then game.ReplicatedStorage.Remotes.Functions.TeleportToDestination:InvokeServer(workspace.Teleports.Scheduled, "Alchemy") end 
+if game.Players.LocalPlayer.PlayerGui.MoodGUI.ImageLabel.TimeLabel.Text:find("10:00") and game.Players.LocalPlayer.PlayerGui.MoodGUI.ImageLabel.TimeLabel.Text:find("am") and game:GetService("Players").LocalPlayer.PlayerGui.MoodGUI.ImageLabel.DayLabel.Text == "C" then game.ReplicatedStorage.Remotes.Functions.TeleportToDestination:InvokeServer(workspace.Teleports.Scheduled, "Astronomy") end 
+if game.Players.LocalPlayer.PlayerGui.MoodGUI.ImageLabel.TimeLabel.Text:find("11:00") and game.Players.LocalPlayer.PlayerGui.MoodGUI.ImageLabel.TimeLabel.Text:find("am") and game:GetService("Players").LocalPlayer.PlayerGui.MoodGUI.ImageLabel.DayLabel.Text == "C" then game.ReplicatedStorage.Remotes.Functions.TeleportToDestination:InvokeServer(workspace.Teleports.Scheduled, "Music") 
+end 
+end 
+end
+)
+
+
+tgls:Toggle(
+    "Anti-Afk",
+    false,
+    function(bool)
+        _G.AntiAFK = bool
+        if not _G.AntiAFK_Connection then
+            _G.AntiAFK_Connection = player.Idled:Connect(function()
+                if _G.AntiAFK then
+                    VirtualUser:CaptureController()
+                    if VirtualUser.ClickButton2 then
+                        VirtualUser:ClickButton2(Vector2.new(0,0))
+                    else
+                        VirtualUser:Button2Down(Vector2.new(0,0))
+                        task.wait(0.08)
+                        VirtualUser:Button2Up(Vector2.new(0,0))
+                    end
+                end
+            end)
+        end
+    end
+)
+
